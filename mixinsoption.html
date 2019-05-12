@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="vue.js"></script>
+<title>mixinsoption</title>
+</head>
+
+<body>
+
+ <h1>mixinsoption</h1>
+ <hr />
+ <div id="app">
+ num:{{a}}
+ <p><button @click="add">add</button></p>
+ </div>
+ 
+ <script>
+ var addLog={
+	 updated:function(){
+		 console.log("数据发生了变化，a变成了"+this.a);
+		 }
+	 }
+ var app=new Vue({
+	 el:"#app",
+	 data:{
+		 a:1
+		 },
+	updated:function(){
+		console.log("这是钩子函数的updated");
+		},
+	methods:{
+		add:function(){
+		this.a++;
+		}
+	},
+	mixins:[addLog]
+	 })
+	  </script>
+</body>
+</html>

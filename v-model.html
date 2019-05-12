@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="vue.js"></script>
+<title>v-for</title>
+</head>
+
+<body>
+
+ <h1>v-model</h1>
+ <hr />
+ <div  id="app">
+ <p>
+ <input type="checkbox" id="yyy" value="yyy" v-model="web_names" />yyy
+ 
+ <input type="checkbox" id="jjj" value="jjj" v-model="web_names" />jjj
+ 
+ <input type="checkbox" id="qqq" value="qqq" v-model="web_names" />qqq
+ 
+ </p>
+ <p>{{web_names}}</p>
+ </div>
+ 
+ <script>
+ var app=new Vue({
+	 el:"#app",
+	 data:{
+		web_names:['yyy','jjj','qqq']
+		 }
+	 })
+ </script>
+</body>
+</html>

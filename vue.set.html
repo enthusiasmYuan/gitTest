@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="vue.js"></script>
+<title>vue.set</title>
+</head>
+
+<body>
+
+ <h1>vue.set</h1>
+ <hr />
+ <div id="app">
+ {{count}}<br /><br /><br />
+ {{array[0]}}<br />{{array[1]}}<br />{{array[2]}}
+ </div>
+ <button onclick="add()">add</button>
+ 
+ <script>
+  function add(){
+	 <!--app.count++;-->
+	 Vue.set(app.array,1,"ddd");
+	 }
+ var outDate={
+   count:1,
+   array:["yyy","jjj","qqq"]
+ }
+ var app=new Vue({
+	 el:"#app",
+	 data:outDate
+	 })
+ </script>
+</body>
+</html>

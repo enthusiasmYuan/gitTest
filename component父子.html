@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="vue.js"></script>
+<title>component父子</title>
+</head>
+
+<body>
+
+ <h1>component父子</h1>
+ <hr />
+ <div id="app">
+ <jspang></jspang>
+ </div>
+ 
+ <script>
+ var city1={
+	template:
+	`
+	<h2>sichuan of china</h2>
+	`
+	}
+ var jspang1={template:
+	 `
+	 <div>
+	 <h1>panda from china</h1>
+	 <city></city>
+	 </div>
+	 `,components:{
+		 "city":city1
+		 }
+	 }
+
+ var app=new Vue({
+	 el:"#app",
+	components:{
+		"jspang":jspang1
+		}
+	 })
+ </script>
+</body>
+</html>

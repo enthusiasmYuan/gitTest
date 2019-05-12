@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="vue.js"></script>
+<title>钩子函数</title>
+</head>
+
+<body>
+
+ <h1>钩子函数</h1>
+ <hr />
+ <div id="app">
+ {{message}}
+ <button onclick="jia()">改变</button>
+ <button onclick="app.$destroy()">销毁</button>
+ </div>
+ 
+ <script type="text/javascript">
+ var app=new Vue({
+	 el:"#app",
+	 data:{
+		 message:1
+    	 },
+	beforeCreate:function(){
+                console.log('1-beforeCreate 初始化之后');
+            },
+            created:function(){
+                console.log('2-created 创建完成');
+            },
+            beforeMount:function(){
+                console.log('3-beforeMount 挂载之前');
+            },
+            mounted:function(){
+                console.log('4-mounted 被创建');
+            },
+            beforeUpdate:function(){
+                console.log('5-beforeUpdate 数据更新前');
+            },
+            updated:function(){
+                console.log('6-updated 被更新后');
+            },
+            activated:function(){
+                console.log('7-activated');
+            },
+            deactivated:function(){
+                console.log('8-deactivated');
+            },
+            beforeDestroy:function(){
+                console.log('9-beforeDestroy 销毁之前');
+            },
+            destroyed:function(){
+                console.log('10-destroyed 销毁之后')
+            }
+	 })
+ </script>
+</body>
+</html>
+

@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="vue.js"></script>
+<title>vue的实例方法</title>
+</head>
+
+<body>
+
+ <h1>vue的实例方法</h1>
+ <hr />
+ <div id="app">
+ {{message}}
+ <button @click="destroy">destroy</button>
+ <button @click="destroy">change</button>
+ <button @click="destroy">modify</button>
+ </div>
+ 
+ <script>
+ var jspangextend=Vue.extend({
+	 template:`<p>{{message}}</p>`,
+     data:function(){
+		 return 
+		 {
+			 message:"hello world!"
+		 }
+		 },
+	mounted:function(){
+		console.log("被创建！");
+		},
+	destroy:function(){
+		comsole.log("被销毁！");
+		},
+		
+ })
+ var vm=new jspangextend().$mount("#app");
+ function destroy(){
+			vm.$destroy();
+			}
+function change(){
+	vm.$forceUpdate();
+	}
+function modify(){
+	vm.message="ou";
+	vm.$nextTick(function(){
+		console.log("nextTick被调用了");
+		});
+	}
+ </script>
+</body>
+</html>
+

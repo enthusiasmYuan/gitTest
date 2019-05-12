@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="vue.js"></script>
+<title>method option</title>
+</head>
+
+<body>
+
+ <h1>method option</h1>
+ <hr />
+ <div id="app">
+ <p>{{a}}</p>
+ <p><button @click="add">add</button>
+ <button @click="add(2)">add2</button>
+ <btn @click.native="add(3)"></btn>
+ 
+ </p>
+ </div>
+ <button onclick="app.add(4)">add4</button>
+ 
+ <script>
+ var btn={
+	 template:`
+	 <button>组件add</button>
+	 `
+	 }
+ var app=new Vue({
+	 el:"#app",
+	 data:{
+		 a:1
+		 },
+	methods:{
+		add:function(num){
+		    if(num!="")
+			{
+				this.a+=num;
+			}
+			else
+			{
+			this.a++;
+			}
+				console.log(event);
+			}
+	
+		},
+	components:{
+		"btn":btn
+		}
+	 })
+ </script>
+</body>
+</html>

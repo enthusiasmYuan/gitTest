@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="vue.js"></script>
+<title>v-pre v-cloak v-once</title>
+</head>
+
+<body>
+<!--<div  id="app" v-pre>{{message}}</div>-->
+<!--<div id="app" v-cloak>{{message}}</div>-->
+<div id="app">
+<div  v-once>第一次绑定的值：{{message}}</div>
+<div><input type="text" v-model="message"/></div>
+<div>第二次绑定的值：{{message}}</div>
+</div>
+<script>
+var app=new Vue({
+	el:"#app",
+	data:{
+		message:"jaycee"
+		}
+	})
+</script>
+</body>
+</html>

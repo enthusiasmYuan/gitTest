@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>review</title>
+<script src="vue.js"></script>
+</head>
+
+<body>
+<div id="app">
+<yuanjiaqi here="yes"></yuajiaqi>
+</div>
+<script>
+
+var app=new Vue({
+	el:"#app",
+	data:{
+		
+		},
+	components:{
+		"yuanjiaqi":{
+		template:`<h1 style="color:green">hello v-{{here}}</h1>`,
+		props:["here"]
+		}
+		}
+	})
+app.$watch('temperature',function(oldV,newV){
+	if(newVal>=26){
+        this.suggestion=suggestion[0];
+    }else if(newVal<26 && newVal >=0)
+    {
+        this.suggestion=suggestion[1];
+    }else{
+        this.suggestion=suggestion[2];
+    }
+	})
+</script>
+</body>
+</html>

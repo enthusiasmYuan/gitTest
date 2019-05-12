@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="vue.js"></script>
+<title>props</title>
+</head>
+
+<body>
+
+ <h1>props</h1>
+ <hr />
+ <div id="app">
+ <panda :here="so"></panda>
+ </div>
+ 
+ <script>
+ var app=new Vue({
+	 el:"#app",
+	 data:{
+		 so:"123"
+		 },
+	 components:{
+		 "panda":{
+			 template:`
+			 <div style="color:red">panda from {{here}}</div>
+			 `,
+			 props:['here']
+			 }
+		 }
+	 })
+ </script>
+</body>
+</html>

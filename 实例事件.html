@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="vue.js"></script>
+<title>vue的实例事件</title>
+</head>
+
+<body>
+
+ <h1>vue的实例事件</h1>
+ <hr />
+ <div id="app">
+ {{num}}
+ <br /><button @click="add">add</button>
+ </div>
+ <br /><button onclick="reduce()">reduce</button>
+ <br /><button onclick="reduceonce()">reduceonce</button>
+ <script>
+ var app=new Vue({
+	 el:"#app",
+	 data:{
+		 num:20
+		 },
+	methods:{
+		add:function(){
+			this.num++
+			}
+		}
+	 })
+app.$on=("reduce",function(){
+	console.log("执行了reduce");
+	this.num--;
+	})
+	
+app.$once=('reduceonce',function(){
+	console.log("执行了redueconce");
+	this.num--;
+	}
+	
+	
+function reduce(){
+	app.$emit('reduce');
+	}
+	
+	
+function reduceonce(){
+	app.$emit('reduceonce');
+	}
+ </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="vue.js"></script>
+<title>componentABC</title>
+</head>
+
+<body>
+
+ <h1>componentABC</h1>
+ <hr />
+ <div id="app">
+ <p :is="who"></p>
+ <button onclick="changeComponent()">切换</button>
+ </div>
+ 
+ <script>
+ var componentA={
+	 template: 
+	 `
+	 <p style="color:red">我是组件componentA</p>
+	 `
+	 }
+var componentB={
+	 template: `<p style="color:green">我是组件componentB</p>
+	 `
+	 }
+var componentC={
+	 template:`<p style="color:pink">我是组件componentC</p>
+	 `
+	 }
+ var app=new Vue({
+	 el:"#app",
+	 data:{
+		 "who":componentA
+		 },
+	components:{
+		"componentA":componentA,
+		"componentB":componentB,
+		"componentC":componentC,
+		}
+	 })
+	 
+			function changeComponent(){
+				  if(this.who=="componentA")
+				  {
+					  this.who="componentB";
+				  }
+				  else if(this.who=="componentB")
+				  {
+					  this.who="componentC";
+				  }
+				  else
+				  {
+				  this.who="componentA";
+				  }
+				}
+ </script>
+</body>
+</html>
